@@ -125,11 +125,22 @@
   }
 
   /* Hero */
-  .hero{padding:64px 0 56px; background:
-      radial-gradient(1100px 500px at 85% -10%, #DCC488 0%, transparent 60%), var(--cream);}
+  .hero{padding:0 0 56px; background:
+      radial-gradient(1100px 500px at 85% -10%, #DCC488 0%, transparent 60%), var(--cream); position:relative;}
+  /* Brand band — the circular logo breaks across this dark band, echoing the original site's
+     header treatment where the badge overlaps the boundary between the dark banner and the
+     page below. */
+  .brand-band{background:var(--navy); height:120px; position:relative; margin-bottom:90px;}
+  .brand-band-logo{
+    position:absolute; left:50%; top:100%; transform:translate(-50%,-60%);
+    width:180px; height:180px; border-radius:50%; box-shadow:0 10px 28px rgba(0,0,0,.35); z-index:5;
+  }
+  @media (max-width:640px){
+    .brand-band{height:80px; margin-bottom:64px;}
+    .brand-band-logo{width:120px; height:120px; transform:translate(-50%,-58%);}
+  }
   .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center;}
   @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
-  .hero-badge{width:210px; height:210px; border-radius:50%; margin-bottom:22px; box-shadow:0 6px 24px rgba(90,60,40,.25);}
   .hero h1{font-size:clamp(32px,5vw,54px); margin-bottom:18px;}
   .hero p.lede{font-size:18px; color:var(--navy); max-width:52ch; margin-bottom:22px;}
   .stat-line{
@@ -273,9 +284,13 @@
 
   <!-- HERO -->
   <section class="hero">
+    <!-- Brand band: nods to the original site's header, where the circular badge logo
+         breaks across a solid dark-brown band. -->
+    <div class="brand-band">
+      <img src="hta-logo.jpg" alt="Happy Trails Animation — Off the beaten path" class="brand-band-logo" width="180" height="180">
+    </div>
     <div class="wrap hero-grid">
       <div>
-        <img src="hta-logo.jpg" alt="Happy Trails Animation — Off the beaten path" class="hero-badge" width="210" height="210">
         <span class="eyebrow">Portland, Oregon · Est. 1991</span>
         <h1>Animation that gets your brand noticed.</h1>
         <p class="lede">Happy Trails Animation is a boutique 2D/3D animation studio producing custom marketing animation, motion comics, and short films for clients coast to coast — and for names like Sony Pictures, Warner Bros., and Paramount.</p>
